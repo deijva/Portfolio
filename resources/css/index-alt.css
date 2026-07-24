@@ -1,0 +1,468 @@
+html {
+  font-size: 16px;
+}
+
+body {
+background-color: beige;
+color: black;
+font-family: 'Poppins', sans-serif;
+padding-top: 3rem;
+}
+
+:root {
+  --content-width: 800px;
+  --intro-quote-width: 550px;
+  --portrait-width: 1000px;
+  --page-width: 1100px;
+  --section-spacing: 3rem;
+}
+
+body.intro {
+  overflow: hidden;
+}
+
+.navbar,
+.portrait,
+.video-section,
+.experience,
+.goals,
+.contact {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+body.intro .navbar,
+body.intro .portrait,
+body.intro .video-section,
+body.intro .experience,
+body.intro .goals,
+body.intro .contact {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro .quote-section {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.quote-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+body.intro.fading .quote-section {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+body:not(.intro) .quote-section {
+  display: none;
+}
+
+img {
+  width: 300
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 0;
+  background-color: beige;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none; 
+  background: transparent;
+  cursor: pointer; 
+}
+
+.nav-toggle-bar {
+  width: 24px;
+  height: 2px;
+  background-color: #1f1b16;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Burger wird beim Öffnen zum X */
+.navbar.open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.navbar.open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+
+.navbar .nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem 0 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.navbar.open .nav-links {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: inherit;
+  transition: letter-spacing 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  color: #d4a373;
+  letter-spacing: 0.15em;
+}
+
+.splash-hint {
+  display: none;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  letter-spacing: 0.05rem;
+}
+
+body.intro .splash-hint {
+  display: block; 
+}
+
+.quote {
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #b98955;
+  line-height: 1.4;
+  position: relative;
+}
+
+.quote::before {
+  content: "\201C";
+  font-size: 5rem;
+  color: #d4a373;
+  opacity: 0.3;
+  position: absolute;
+  top: -2rem;
+  left: -1rem;
+  font-family: Georgia, serif;
+}
+
+.quote::after {
+  content: "\201D";
+  font-size: 5rem;
+  color: #d4a373;
+  opacity: 0.3;
+  position: absolute;
+  bottom: -3.5rem;
+  right: -1rem;
+  font-family: Georgia, serif;
+}
+
+.biography {
+  text-align: center;
+  padding: 40px;
+  border: none;
+  border-bottom: none;
+}
+
+.portrait {
+  font-size: 1.3rem; 
+  display: flex;
+  color: black;
+  padding-top: 5rem;
+  background-position: center;
+  align-items: center;
+  height: auto;
+  text-align: justify;
+  gap: 3rem;
+  max-width: var(--portrait-width);
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.portrait h2 {             /* <- wichtig */
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.portrait .text-bereich {
+  flex: 1.6;
+}
+
+.portrait .portrait-bild {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.portrait-bild img {
+  border-radius: 25%;
+  display: block;
+  width: auto;
+  height: 30rem;
+}
+
+.video-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.video-section {
+  max-width: var(--content-width);
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; 
+}
+
+.experience {
+  background-color: transparent;
+  margin-top: 0;
+  border: none;
+  max-width: var(--content-width);   
+  margin: 0 auto;     
+  text-align: left;
+  padding-top: 2rem;
+}
+
+.experience ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 20px auto;
+}
+
+.goals {
+  background-color: transparent;
+  margin-top: 0;
+  border: none;
+  max-width: var(--content-width);   /* begrenzt Breite */
+  margin: 0 auto;     /* zentriert Block */
+  text-align: left;
+  padding-top: 2rem;
+}
+
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4a373;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 0.8rem 2rem;
+  background-color: #d4a373;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer; 
+  transition: background-color 0.2s ease; 
+}
+
+.timeline-filters {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #d4a373;
+  border-radius: 30px;
+  background-color: transparent;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn-active {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #d4a373;
+  border-radius: 30px;
+  background-color: transparent;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: rgba(212, 163, 115, 0.15);
+}
+
+.timeline-group {
+  margin-top: 0;
+  min-width: 0;
+  flex: 1;
+}
+
+.timeline-group h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid #d4a373;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.45rem;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  background-color: #d4a373;
+  border-radius: 50%;
+  border: 3px solid beige;
+}
+
+.timeline-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b98955;
+  letter-spacing: 0.03em;
+}
+
+.timeline-content h3 {
+  margin: 0.3rem 0 0.2rem;
+  font-size: 1.15rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Filter-Logik: Gruppen ein-/ausblenden */
+.timeline-group.hidden {
+  display: none;
+}
+
+
+.timeline-groups-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+}
+
+
