@@ -11,7 +11,7 @@ const navbarHTML = `
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="experience.html">Experience</a></li>
-      <li><a href="goals.html">Goals</a></li>
+      <li><a href="about.html">Über mich</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>

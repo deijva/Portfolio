@@ -665,6 +665,92 @@ body.intro .splash-hint {
   }
 }
 
+/* Über mich */
+
+.about {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--section-gap) var(--gutter);
+}
+
+.about-intro {
+  max-width: 40rem;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-top: -0.5rem;
+}
+
+.fields {
+  margin-top: 4rem;
+  counter-reset: field;
+}
+
+.field {
+  display: flex;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.field:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.field-number {
+  font-family: var(--font-mono);
+  font-size: var(--step-s);
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  flex-shrink: 0;
+  padding-top: 0.4rem;
+}
+
+.field-body h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-bottom: 0.8rem;
+}
+
+.field-body p {
+  color: var(--ink-soft);
+  max-width: 40rem;
+  margin: 0;
+}
+
+.about-cta {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.about-cta p {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-transform: uppercase;
+  line-height: 1.1;
+  max-width: 20em;
+  margin: 0 0 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background-color: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--step-s);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.cta-button:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .portrait {
     flex-direction: column;
@@ -697,6 +783,10 @@ body.intro .splash-hint {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+   .field {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }
 
