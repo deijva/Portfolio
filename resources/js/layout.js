@@ -12,7 +12,7 @@ const navbarHTML = `
       <li><a href="index.html">Home</a></li>
       <li><a href="experience.html">Erfahrung</a></li>
       <li><a href="about.html">Über mich</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
     </ul>
   </nav>
 `;
